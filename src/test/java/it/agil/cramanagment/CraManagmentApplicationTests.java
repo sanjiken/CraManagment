@@ -23,11 +23,7 @@ public class CraManagmentApplicationTests {
 
 	@Test
 	public void saveCraUser() {
-		final CraUser craUser = new CraUser();
-		craUser.setFirstName("Abdou");
-		craUser.setLastName("Amari");
-		craUser.setEmail("abderahmen.amairi@esprit.tn");
-		craUser.setRole(Role.CON);
+		final CraUser craUser = new CraUser("agilItUsername", "agilItPwd", "admin@agilt-it.io", Role.D);
 		craUserService.saveCraUser(craUser);
 	}
 

@@ -17,4 +17,11 @@ public class CraUserServiceImpl implements CraUserService {
 		craUserRepository.save(craUser);
 	}
 
+	@Override
+	public CraUser login(String username, String pwd) {
+		
+		// TODO Auto-generated method stub
+		return craUserRepository.findByUsernameAndPwd(username, pwd);
+	}
+
 }
