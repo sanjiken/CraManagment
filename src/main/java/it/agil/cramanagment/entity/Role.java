@@ -1,4 +1,4 @@
-package it.agil.cramanagment.Entity;
+package it.agil.cramanagment.entity;
 
 public enum Role {
 
@@ -7,7 +7,7 @@ public enum Role {
 	private final String name;
 	private final RoleType roleType;
 
-	private Role(String name, RoleType roleType) {
+	private Role(final String name, final RoleType roleType) {
 		this.name = name;
 		this.roleType = roleType;
 	}
