@@ -6,8 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import it.agil.cramanagment.model.CraUser;
-import it.agil.cramanagment.model.Role;
+import it.agil.cramanagment.Entity.CraUser;
+import it.agil.cramanagment.Entity.Role;
 import it.agil.cramanagment.service.CraUserService;
 
 @RunWith(SpringRunner.class)

@@ -1,4 +1,4 @@
-package it.agil.cramanagment.model;
+package it.agil.cramanagment.Entity;
 
 public enum Role {
 

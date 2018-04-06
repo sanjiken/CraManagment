@@ -3,7 +3,7 @@ package it.agil.cramanagment.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import it.agil.cramanagment.model.CraUser;
+import it.agil.cramanagment.Entity.CraUser;
 import it.agil.cramanagment.repository.CraUserRepository;
 
 @Service

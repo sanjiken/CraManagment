@@ -1,6 +1,6 @@
 package it.agil.cramanagment.service;
 
-import it.agil.cramanagment.model.CraUser;
+import it.agil.cramanagment.Entity.CraUser;
 
 public interface CraUserService {
 	void saveCraUser(CraUser craUser);
