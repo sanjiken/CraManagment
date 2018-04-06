@@ -1,10 +1,15 @@
 package it.agil.cramanagment.service;
 
-import it.agil.cramanagment.model.CraUser;
+import it.agil.cramanagment.entity.CraUser;
 
 public interface CraUserService {
-	void saveCraUser(CraUser craUser);
 
-	CraUser login(final String username, final String pwd);
+	CraUser saveOrUpdate(CraUser craUser);
+
+	CraUser login(String username, String pwd);
+
+	void delete(CraUser craUser);
+
+	CraUser findById(Long id);
 
 }

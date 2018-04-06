@@ -1,4 +1,4 @@
-package it.agil.cramanagment.model;
+package it.agil.cramanagment.entity;
 
 import java.io.Serializable;
 
@@ -15,20 +15,23 @@ public class CraUser implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
-	@Column(nullable = false)
+	@Column(nullable = false, unique = true)
 	private String username;
 	@Column(nullable = false)
 	private String pwd;
 	private String firstName;
 	private String lastName;
-	@Column(nullable = false)
+	@Column(nullable = false, unique = true)
 	private String email;
 	private String telS;
 	private String telM;
 	@Column(nullable = false)
 	private Role role;
 
-	public CraUser(String username, String pwd, String email, Role role) {
+	public CraUser() {
+	}
+
+	public CraUser(final String username, final String pwd, final String email, final Role role) {
 		this.username = username;
 		this.pwd = pwd;
 		this.email = email;
@@ -39,7 +42,7 @@ public class CraUser implements Serializable {
 		return id;
 	}
 
-	public void setId(Long id) {
+	public void setId(final Long id) {
 		this.id = id;
 	}
 
@@ -47,7 +50,7 @@ public class CraUser implements Serializable {
 		return username;
 	}
 
-	public void setUsername(String username) {
+	public void setUsername(final String username) {
 		this.username = username;
 	}
 
@@ -55,7 +58,7 @@ public class CraUser implements Serializable {
 		return pwd;
 	}
 
-	public void setPwd(String pwd) {
+	public void setPwd(final String pwd) {
 		this.pwd = pwd;
 	}
 
@@ -63,7 +66,7 @@ public class CraUser implements Serializable {
 		return firstName;
 	}
 
-	public void setFirstName(String firstName) {
+	public void setFirstName(final String firstName) {
 		this.firstName = firstName;
 	}
 
@@ -71,7 +74,7 @@ public class CraUser implements Serializable {
 		return lastName;
 	}
 
-	public void setLastName(String lastName) {
+	public void setLastName(final String lastName) {
 		this.lastName = lastName;
 	}
 
@@ -79,7 +82,7 @@ public class CraUser implements Serializable {
 		return email;
 	}
 
-	public void setEmail(String email) {
+	public void setEmail(final String email) {
 		this.email = email;
 	}
 
@@ -87,7 +90,7 @@ public class CraUser implements Serializable {
 		return telS;
 	}
 
-	public void setTelS(String telS) {
+	public void setTelS(final String telS) {
 		this.telS = telS;
 	}
 
@@ -95,7 +98,7 @@ public class CraUser implements Serializable {
 		return telM;
 	}
 
-	public void setTelM(String telM) {
+	public void setTelM(final String telM) {
 		this.telM = telM;
 	}
 
@@ -103,7 +106,7 @@ public class CraUser implements Serializable {
 		return role;
 	}
 
-	public void setRole(Role role) {
+	public void setRole(final Role role) {
 		this.role = role;
 	}
 }

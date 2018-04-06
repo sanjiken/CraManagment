@@ -1,19 +1,20 @@
 package it.agil.cramanagment;
 
+import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import it.agil.cramanagment.model.CraUser;
-import it.agil.cramanagment.model.Role;
+import it.agil.cramanagment.entity.CraUser;
+import it.agil.cramanagment.entity.Role;
 import it.agil.cramanagment.service.CraUserService;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
 public class CraManagmentApplicationTests {
-	
+
 	@Autowired
 	private CraUserService craUserService;
 
@@ -23,8 +24,17 @@ public class CraManagmentApplicationTests {
 
 	@Test
 	public void saveCraUser() {
-		final CraUser craUser = new CraUser("agilItUsername", "agilItPwd", "admin@agilt-it.io", Role.D);
+		CraUser craUser = craUserService.login("agilItUsername", "agilItPwd");
+		if (craUser == null) {
+			craUser = new CraUser("agilItUsername", "agilItPwd", "admin@agilt-it.io", Role.D);
+		}
 		craUserService.saveCraUser(craUser);
+	}
+
+	@Test
+	public void login() {
+		CraUser craUser = craUserService.login("agilItUsername", "agilItPwd");
+		Assert.assertNotNull(craUser);
 	}
 
 }
