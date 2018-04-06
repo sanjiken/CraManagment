@@ -28,12 +28,12 @@ public class CraManagmentApplicationTests {
 		if (craUser == null) {
 			craUser = new CraUser("agilItUsername", "agilItPwd", "admin@agilt-it.io", Role.D);
 		}
-		craUserService.saveCraUser(craUser);
+		craUserService.saveOrUpdate(craUser);
 	}
 
 	@Test
 	public void login() {
-		CraUser craUser = craUserService.login("agilItUsername", "agilItPwd");
+		final CraUser craUser = craUserService.login("agilItUsername", "agilItPwd");
 		Assert.assertNotNull(craUser);
 	}
 

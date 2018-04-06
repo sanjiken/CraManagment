@@ -1,4 +1,4 @@
-package it.agil.cramanagment.entity;
+package it.agil.cramanagment.Entity;
 
 public enum RoleType {
 	A, C;
