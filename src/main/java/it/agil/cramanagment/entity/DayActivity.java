@@ -47,12 +47,12 @@ public class DayActivity implements Serializable {
 		this.value = value;
 	}
 
-	public Double getLimit() {
+	public Double getDayLimit() {
 		return dayLimit;
 	}
 
-	public void setLimit(final Double limit) {
-		this.dayLimit = limit;
+	public void setDayLimit(final Double dayLimit) {
+		this.dayLimit = dayLimit;
 	}
 
 }

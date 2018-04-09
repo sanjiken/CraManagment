@@ -1,6 +1,10 @@
 package it.agil.cramanagment;
 
+import java.util.List;
+
+import org.junit.After;
 import org.junit.Assert;
+import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,23 +22,45 @@ public class CraManagmentApplicationTests {
 	@Autowired
 	private CraUserService craUserService;
 
-	@Test
-	public void contextLoads() {
-	}
-
-	@Test
-	public void saveCraUser() {
-		CraUser craUser = craUserService.login("agilItUsername", "agilItPwd");
+	@Before
+	public void initData() {
+		final String username = "agilItUsername";
+		final String pwd = "agilItPwd";
+		CraUser craUser = craUserService.login(username, pwd);
 		if (craUser == null) {
-			craUser = new CraUser("agilItUsername", "agilItPwd", "admin@agilt-it.io", Role.D);
+			craUser = new CraUser(username, pwd, "agilItUsername@agilit.io", Role.D);
 		}
-		craUserService.saveOrUpdate(craUser);
+		Assert.assertTrue(craUserService.saveOrUpdate(craUser));
 	}
 
 	@Test
 	public void login() {
 		final CraUser craUser = craUserService.login("agilItUsername", "agilItPwd");
 		Assert.assertNotNull(craUser);
+	}
+
+	@Test
+	public void findByid() {
+		final String username = "agilItUsername";
+		final String pwd = "agilItPwd";
+		final CraUser craUser = craUserService.login(username, pwd);
+		Assert.assertNotNull(craUserService.findById(craUser.getId()));
+	}
+
+	@Test
+	public void findAll() {
+		final List<CraUser> craUserList = craUserService.finAll();
+		Assert.assertNotNull(craUserList);
+		Assert.assertTrue(craUserList.size() > 0);
+	}
+
+	@After
+	public void deleteData() {
+		final String username = "agilItUsername";
+		final String pwd = "agilItPwd";
+		final CraUser craUser = craUserService.login(username, pwd);
+		Assert.assertNotNull(craUser);
+		Assert.assertTrue(craUserService.delete(craUser));
 	}
 
 }

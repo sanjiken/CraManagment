@@ -37,6 +37,11 @@ public class CraUser implements Serializable {
 		// TODO Auto-generated constructor stub
 	}
 
+	public CraUser() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
 	public CraUser(final String username, final String pwd, final String email, final Role role) {
 		this.username = username;
 		this.pwd = pwd;

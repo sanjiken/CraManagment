@@ -1,15 +1,19 @@
 package it.agil.cramanagment.service;
 
+import java.util.List;
+
 import it.agil.cramanagment.entity.CraUser;
 
 public interface CraUserService {
 
-	CraUser saveOrUpdate(CraUser craUser);
+	boolean saveOrUpdate(CraUser craUser);
 
 	CraUser login(String username, String pwd);
 
-	void delete(CraUser craUser);
+	boolean delete(CraUser craUser);
 
 	CraUser findById(Long id);
+
+	List<CraUser> finAll();
 
 }

@@ -31,8 +31,7 @@ public class CraUserController {
 
 	@PostMapping(value = "saveOrUpdate")
 	public ResponseEntity<?> addUser(@RequestBody final CraUser craUser) {
-		final CraUser craUserResponse = craUserService.saveOrUpdate(craUser);
-		return new ResponseEntity<>(craUserResponse == null ? HttpStatus.BAD_REQUEST : HttpStatus.OK);
+		return new ResponseEntity<>(craUserService.saveOrUpdate(craUser) ? HttpStatus.BAD_REQUEST : HttpStatus.OK);
 	}
 
 }
