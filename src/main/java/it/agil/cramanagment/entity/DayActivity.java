@@ -18,7 +18,7 @@ public class DayActivity implements Serializable {
 	private Long id;
 	private Date date;
 	private Double value;
-	private Double limit;
+	private Double dayLimit;
 
 	public DayActivity() {
 	}
@@ -48,11 +48,11 @@ public class DayActivity implements Serializable {
 	}
 
 	public Double getLimit() {
-		return limit;
+		return dayLimit;
 	}
 
 	public void setLimit(final Double limit) {
-		this.limit = limit;
+		this.dayLimit = limit;
 	}
 
 }

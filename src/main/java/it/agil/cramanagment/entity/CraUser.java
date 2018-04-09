@@ -29,6 +29,13 @@ public class CraUser implements Serializable {
 	private String telM;
 	@Column(nullable = false)
 	private Role role;
+	
+	
+
+	public CraUser() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
 
 	public CraUser(final String username, final String pwd, final String email, final Role role) {
 		this.username = username;

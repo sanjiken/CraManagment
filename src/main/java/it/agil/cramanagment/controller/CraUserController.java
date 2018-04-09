@@ -7,10 +7,11 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import it.agil.cramanagment.entity.CraUser;
+import it.agil.cramanagment.model.UserModelRequest;
 import it.agil.cramanagment.service.CraUserService;
 
 @RestController(value = "craUserManagment")
@@ -19,9 +20,9 @@ public class CraUserController {
 	@Autowired
 	private CraUserService craUserService;
 
-	@GetMapping(value = "login", produces = MediaType.APPLICATION_JSON_VALUE)
-	public ResponseEntity<?> login(@RequestParam final String username, @RequestParam final String pwd) {
-		final CraUser craUser = craUserService.login(username, pwd);
+	@PostMapping(value = "/login", produces = MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity<?> login( @RequestBody UserModelRequest user) {
+		final CraUser craUser = craUserService.login(user.getEmailUser(), user.getPswUser());
 		if (craUser != null) {
 			return new ResponseEntity<CraUser>(craUser, HttpStatus.OK);
 		}
