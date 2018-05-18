@@ -7,26 +7,24 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 
 @Entity
-public class Role implements Serializable {
+public class Client implements Serializable {
 
 	private static final long serialVersionUID = 1L;
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 	@Column(nullable = false)
 	private String name;
-	private String description;
-	@ManyToOne
-	@JoinColumn(name = "craUser_id")
-	private CraUser craUser;
+	private String tel;
+	private String responsable;
 
-	public Role(final String name, final String description) {
+	public Client(final Long id, final String name, final String tel) {
+		this.id = id;
 		this.name = name;
-		this.setDescription(description);
+		this.tel = tel;
 	}
 
 	public Long getId() {
@@ -38,7 +36,6 @@ public class Role implements Serializable {
 	}
 
 	public String getName() {
-		
 		return name;
 	}
 
@@ -46,12 +43,20 @@ public class Role implements Serializable {
 		this.name = name;
 	}
 
-	public String getDescription() {
-		return description;
+	public String getTel() {
+		return tel;
 	}
 
-	public void setDescription(String description) {
-		this.description = description;
+	public void setTel(String tel) {
+		this.tel = tel;
+	}
+
+	public String getResponsable() {
+		return responsable;
+	}
+
+	public void setResponsable(String responsable) {
+		this.responsable = responsable;
 	}
 
 }

@@ -1,12 +1,16 @@
 package it.agil.cramanagment.entity;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.xml.bind.annotation.XmlRootElement;
 
 @Entity
@@ -27,21 +31,17 @@ public class CraUser implements Serializable {
 	private String email;
 	private String telS;
 	private String telM;
-	@Column(nullable = false)
-	private Role role;
-	
-	
+	@OneToMany(mappedBy = "craUser", fetch = FetchType.LAZY, orphanRemoval = true)
+	private List<Role> roles = new ArrayList<>();
 
 	public CraUser() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
-	public CraUser(final String username, final String pwd, final String email, final Role role) {
+	public CraUser(final String username, final String pwd, final String email) {
 		this.username = username;
 		this.pwd = pwd;
 		this.email = email;
-		this.role = role;
 	}
 
 	public Long getId() {
@@ -108,11 +108,13 @@ public class CraUser implements Serializable {
 		this.telM = telM;
 	}
 
-	public Role getRole() {
-		return role;
+	@OneToMany
+	public List<Role> getRoles() {
+		return roles;
 	}
 
-	public void setRole(final Role role) {
-		this.role = role;
+	public void setRoles(List<Role> roles) {
+		this.roles = roles;
 	}
+
 }

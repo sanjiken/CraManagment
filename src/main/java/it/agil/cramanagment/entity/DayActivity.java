@@ -1,7 +1,6 @@
 package it.agil.cramanagment.entity;
 
-import java.io.Serializable;
-import java.util.Date;
+import java.time.DayOfWeek;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -9,50 +8,52 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
-public class DayActivity implements Serializable {
-
-	private static final long serialVersionUID = 1L;
-
+public class DayActivity {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
-	private Date date;
-	private Double value;
-	private Double dayLimit;
 
-	public DayActivity() {
+	private DayOfWeek craDay;
+
+	private DayActiviyType activiyType;
+
+	private double dayActivityValue;
+
+	public DayActivity(final DayOfWeek craDay, final DayActiviyType activiyType) {
+		this.craDay = craDay;
+		this.activiyType = activiyType;
 	}
 
 	public Long getId() {
 		return id;
 	}
 
-	public void setId(final Long id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 
-	public Date getDate() {
-		return date;
+	public DayOfWeek getCraDay() {
+		return craDay;
 	}
 
-	public void setDate(final Date date) {
-		this.date = date;
+	public void setCraDay(DayOfWeek craDay) {
+		this.craDay = craDay;
 	}
 
-	public Double getValue() {
-		return value;
+	public DayActiviyType getActiviyType() {
+		return activiyType;
 	}
 
-	public void setValue(final Double value) {
-		this.value = value;
+	public void setActiviyType(DayActiviyType activiyType) {
+		this.activiyType = activiyType;
 	}
 
-	public Double getLimit() {
-		return dayLimit;
+	public double getDayActivityValue() {
+		return dayActivityValue;
 	}
 
-	public void setLimit(final Double limit) {
-		this.dayLimit = limit;
+	public void setDayActivityValue(double dayActivityValue) {
+		this.dayActivityValue = dayActivityValue;
 	}
 
 }
