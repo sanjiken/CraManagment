@@ -65,4 +65,9 @@ public class CraServiceImpl implements CraService {
 		return craRepository.findAll(sort);
 	}
 
+	@Override
+	public Iterable<Cra> findAll() {
+		return craRepository.findAll();
+	}
+
 }

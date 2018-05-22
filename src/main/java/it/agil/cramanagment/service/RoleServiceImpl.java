@@ -54,4 +54,9 @@ public class RoleServiceImpl implements RoleService {
 		return roleRepository.findAll(sort);
 	}
 
+	@Override
+	public Iterable<Role> findAll() {
+		return roleRepository.findAll();
+	}
+
 }

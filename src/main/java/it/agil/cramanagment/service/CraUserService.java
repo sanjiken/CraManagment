@@ -19,4 +19,6 @@ public interface CraUserService {
 
 	Iterable<CraUser> findAllSorted(Sort sort);
 
+	Iterable<CraUser> findAll();
+
 }

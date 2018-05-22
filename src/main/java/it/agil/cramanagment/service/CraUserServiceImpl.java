@@ -63,4 +63,9 @@ public class CraUserServiceImpl implements CraUserService {
 		return craUserRepository.findAll(sort);
 	}
 
+	@Override
+	public Iterable<CraUser> findAll() {
+		return craUserRepository.findAll();
+	}
+
 }

@@ -16,4 +16,6 @@ public interface RoleService {
 	Page<Role> findAllByPage(int page, int size);
 
 	Iterable<Role> findAllSorted(Sort sort);
+
+	Iterable<Role> findAll();
 }

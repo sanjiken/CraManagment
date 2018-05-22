@@ -16,4 +16,6 @@ public interface DayActivityService {
 	Page<DayActivity> findAllByPage(int page, int size);
 
 	Iterable<DayActivity> findAllSorted(Sort sort);
+
+	Iterable<DayActivity> findAll();
 }

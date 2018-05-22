@@ -16,4 +16,6 @@ public interface CraService {
 	Page<Cra> findAllByPage(int page, int size);
 
 	Iterable<Cra> findAllSorted(Sort sort);
+
+	Iterable<Cra> findAll();
 }

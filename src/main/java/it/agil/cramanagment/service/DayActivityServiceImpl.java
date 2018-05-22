@@ -55,4 +55,9 @@ public class DayActivityServiceImpl implements DayActivityService {
 		return dayActivityRepository.findAll(sort);
 	}
 
+	@Override
+	public Iterable<DayActivity> findAll() {
+		return dayActivityRepository.findAll();
+	}
+
 }
