@@ -9,12 +9,14 @@ public interface ClientService {
 
 	Client saveOrUpdate(Client client);
 
-	void delete(Client client);
+	boolean deleteById(Long id);
 
 	Client findById(Long id);
 
 	Page<Client> findAllByPage(int page, int size);
 
 	Iterable<Client> findAllSorted(Sort sort);
+
+	Iterable<Client> findAll();
 
 }

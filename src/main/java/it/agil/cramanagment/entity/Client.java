@@ -21,6 +21,10 @@ public class Client implements Serializable {
 	private String tel;
 	private String responsable;
 
+	public Client() {
+		super();
+	}
+
 	public Client(final Long id, final String name, final String tel) {
 		this.id = id;
 		this.name = name;
@@ -31,7 +35,7 @@ public class Client implements Serializable {
 		return id;
 	}
 
-	public void setId(Long id) {
+	public void setId(final Long id) {
 		this.id = id;
 	}
 
@@ -39,7 +43,7 @@ public class Client implements Serializable {
 		return name;
 	}
 
-	public void setName(String name) {
+	public void setName(final String name) {
 		this.name = name;
 	}
 
@@ -47,7 +51,7 @@ public class Client implements Serializable {
 		return tel;
 	}
 
-	public void setTel(String tel) {
+	public void setTel(final String tel) {
 		this.tel = tel;
 	}
 
@@ -55,7 +59,7 @@ public class Client implements Serializable {
 		return responsable;
 	}
 
-	public void setResponsable(String responsable) {
+	public void setResponsable(final String responsable) {
 		this.responsable = responsable;
 	}
 

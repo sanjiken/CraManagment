@@ -1,5 +1,6 @@
 package it.agil.cramanagment.entity;
 
+import java.io.Serializable;
 import java.time.DayOfWeek;
 
 import javax.persistence.Entity;
@@ -8,7 +9,10 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
-public class DayActivity {
+public class DayActivity implements Serializable {
+
+	private static final long serialVersionUID = 1L;
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
@@ -28,7 +32,7 @@ public class DayActivity {
 		return id;
 	}
 
-	public void setId(Long id) {
+	public void setId(final Long id) {
 		this.id = id;
 	}
 
@@ -36,7 +40,7 @@ public class DayActivity {
 		return craDay;
 	}
 
-	public void setCraDay(DayOfWeek craDay) {
+	public void setCraDay(final DayOfWeek craDay) {
 		this.craDay = craDay;
 	}
 
@@ -44,7 +48,7 @@ public class DayActivity {
 		return activiyType;
 	}
 
-	public void setActiviyType(DayActiviyType activiyType) {
+	public void setActiviyType(final DayActiviyType activiyType) {
 		this.activiyType = activiyType;
 	}
 
@@ -52,7 +56,7 @@ public class DayActivity {
 		return dayActivityValue;
 	}
 
-	public void setDayActivityValue(double dayActivityValue) {
+	public void setDayActivityValue(final double dayActivityValue) {
 		this.dayActivityValue = dayActivityValue;
 	}
 

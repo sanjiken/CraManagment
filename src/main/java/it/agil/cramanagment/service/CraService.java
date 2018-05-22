@@ -6,10 +6,10 @@ import org.springframework.data.domain.Sort;
 import it.agil.cramanagment.entity.Cra;
 
 public interface CraService {
-	
+
 	Cra saveOrUpdate(Cra cra);
 
-	void delete(Cra cra);
+	boolean deleteById(Long id);
 
 	Cra findById(Long id);
 

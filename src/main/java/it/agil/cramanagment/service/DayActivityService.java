@@ -6,9 +6,10 @@ import org.springframework.data.domain.Sort;
 import it.agil.cramanagment.entity.DayActivity;
 
 public interface DayActivityService {
+
 	DayActivity saveOrUpdate(DayActivity dayActivity);
 
-	void delete(DayActivity dayActivity);
+	boolean deleteById(Long id);
 
 	DayActivity findById(Long id);
 

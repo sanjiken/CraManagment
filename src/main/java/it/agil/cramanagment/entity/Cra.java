@@ -12,6 +12,7 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
 @Entity
@@ -19,29 +20,29 @@ public class Cra implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
-	public final static double MAX_DAY_VALUE = 1;
+	public static final double MAX_DAY_VALUE = 1;
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 	@Column(nullable = false)
 	private Month craDate;
 	private Year craYear;
-	@OneToMany(fetch=FetchType.LAZY,orphanRemoval=true)
+	@OneToMany(fetch = FetchType.LAZY, orphanRemoval = true)
 	private List<DayActivity> dayActivities = new ArrayList<>();
+	@ManyToOne(fetch = FetchType.LAZY)
 	private Client client;
 	private CraUser craUser;
 
-	public Cra(Month craDate, Year craYear, List<DayActivity> dayActivities) {
+	public Cra(final Month craDate, final Year craYear) {
 		this.craDate = craDate;
 		this.craYear = craYear;
-		this.dayActivities = dayActivities;
 	}
 
 	public Long getId() {
 		return id;
 	}
 
-	public void setId(Long id) {
+	public void setId(final Long id) {
 		this.id = id;
 	}
 
@@ -49,7 +50,7 @@ public class Cra implements Serializable {
 		return craDate;
 	}
 
-	public void setCraDate(Month craDate) {
+	public void setCraDate(final Month craDate) {
 		this.craDate = craDate;
 	}
 
@@ -58,7 +59,7 @@ public class Cra implements Serializable {
 		return dayActivities;
 	}
 
-	public void setDayActivities(List<DayActivity> dayActivities) {
+	public void setDayActivities(final List<DayActivity> dayActivities) {
 		this.dayActivities = dayActivities;
 	}
 
@@ -66,7 +67,7 @@ public class Cra implements Serializable {
 		return craYear;
 	}
 
-	public void setCraYear(Year craYear) {
+	public void setCraYear(final Year craYear) {
 		this.craYear = craYear;
 	}
 
@@ -74,7 +75,7 @@ public class Cra implements Serializable {
 		return client;
 	}
 
-	public void setClient(Client client) {
+	public void setClient(final Client client) {
 		this.client = client;
 	}
 
@@ -82,7 +83,7 @@ public class Cra implements Serializable {
 		return craUser;
 	}
 
-	public void setCraUser(CraUser craUser) {
+	public void setCraUser(final CraUser craUser) {
 		this.craUser = craUser;
 	}
 

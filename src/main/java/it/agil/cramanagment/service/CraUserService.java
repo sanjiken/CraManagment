@@ -1,5 +1,8 @@
 package it.agil.cramanagment.service;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Sort;
+
 import it.agil.cramanagment.entity.CraUser;
 
 public interface CraUserService {
@@ -8,8 +11,12 @@ public interface CraUserService {
 
 	CraUser login(String username, String pwd);
 
-	void delete(CraUser craUser);
+	boolean deleteById(Long id);
 
 	CraUser findById(Long id);
+
+	Page<CraUser> findAllByPage(int page, int size);
+
+	Iterable<CraUser> findAllSorted(Sort sort);
 
 }

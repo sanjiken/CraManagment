@@ -6,10 +6,10 @@ import org.springframework.data.domain.Sort;
 import it.agil.cramanagment.entity.Role;
 
 public interface RoleService {
-	
+
 	Role saveOrUpdate(Role role);
 
-	void delete(Role role);
+	boolean deleteById(Long id);
 
 	Role findById(Long id);
 

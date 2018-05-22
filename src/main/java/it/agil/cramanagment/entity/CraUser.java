@@ -31,7 +31,7 @@ public class CraUser implements Serializable {
 	private String email;
 	private String telS;
 	private String telM;
-	@OneToMany(mappedBy = "craUser", fetch = FetchType.LAZY, orphanRemoval = true)
+	@OneToMany(fetch = FetchType.LAZY, orphanRemoval = true)
 	private List<Role> roles = new ArrayList<>();
 
 	public CraUser() {
@@ -113,7 +113,7 @@ public class CraUser implements Serializable {
 		return roles;
 	}
 
-	public void setRoles(List<Role> roles) {
+	public void setRoles(final List<Role> roles) {
 		this.roles = roles;
 	}
 
